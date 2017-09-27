@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class EmpresaDAO {
-    
+
     private final static Map<Integer, Empresa> EMPRESAS = new HashMap();
     
     static {
@@ -20,26 +19,29 @@ public class EmpresaDAO {
         geraIdEAdiciona(new Empresa("Facebook"));
         geraIdEAdiciona(new Empresa("Iskisita Atacado"));
         geraIdEAdiciona(new Empresa("Rodante"));
-    
-    
     }
     
-    public Collection buscarPorSimilaridade(String nome){
-        if (nome == null){
+    public Collection buscaPorSimilaridade(String nome) {
+        if (nome == null) {
             return EMPRESAS.values();
         }
-        List<Empresa>similares = new ArrayList();
-        for(Empresa empresa : EMPRESAS.values()){
-            if(empresa.getNome().toLowerCase().contains(nome.toLowerCase())){
+        List<Empresa> similares = new ArrayList();
+        for (Empresa empresa : EMPRESAS.values()) {
+            if (empresa.getNome().toLowerCase().contains(nome.toLowerCase())) {
                 similares.add(empresa);
             }
         }
         return similares;
     }
     
-    private static void geraIdEAdiciona(Empresa empresa){
+    public void adiciona(Empresa empresa) {
+        geraIdEAdiciona(empresa);
+    }
+
+    private static void geraIdEAdiciona(Empresa empresa) {
         int id = EMPRESAS.size() + 1;
         empresa.setId(id);
         EMPRESAS.put(id, empresa);
     }
+    
 }

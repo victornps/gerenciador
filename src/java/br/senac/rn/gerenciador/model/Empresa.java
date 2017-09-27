@@ -8,14 +8,14 @@ public class Empresa {
 
     public Empresa() {
     }
+    
+    public Empresa(String nome) {
+        this.nome = nome;
+    }
 
     public Empresa(int id, String nome) {
         this.id = id;
         this.nome = nome;
-    }
-
-    public Empresa(String doceria_Bela_Vista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNome() {

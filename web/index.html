@@ -19,5 +19,19 @@
             <input type="text" name="nome_empresa" />
             <input type="submit" value="Cadastrar" />
         </form>
+        
+        <form action="novoUsuario" method="post">
+            <label>Email do Usuario: </label>
+            <input type="text" name="email" />
+            <label>Senha do Usuario: </label>
+            <input type="password" name="senha" />
+           <input type="submit" value="Cadastrar" />
+        </form>
+        
+        <form action="buscaUsuario" method="post">
+            <label>Seu email: </label>
+            <input type="text" name="filtro" />
+            <input type="submit" value="Buscar" />
+        </form>
     </body>
 </html>

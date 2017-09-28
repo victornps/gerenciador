@@ -1,7 +1,11 @@
 package br.senac.rn.gerenciador.dao;
 
+import br.senac.rn.gerenciador.model.Empresa;
 import br.senac.rn.gerenciador.model.Usuario;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,4 +30,26 @@ public class UsuarioDAO {
         
         return null;
     }
+    
+    public void adiciona(Usuario usuario) {
+        
+        USUARIOS.put(usuario.getEmail(),new Usuario(usuario.getEmail(),usuario.getSenha()));
+        
+        
+    }
+    
+    public Collection buscaPorSimilaridade(String email) {
+        if (email == null) {
+            return USUARIOS.values();
+        }
+        List<Usuario> similares = new ArrayList();
+        for (Usuario usuario : USUARIOS.values()) {
+            if (usuario.getEmail().toLowerCase().contains(email.toLowerCase())) {
+                similares.add(usuario);
+            }
+        }
+        return similares;
+    }
+
+    
 }
